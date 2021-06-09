@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} Search Results-TechBlogger {% endblock %}
+{% block body %}
+<div class='container my-2'>
+    <h2>Search Results - TECHBLOGGER</h2>
+    {% if allPosts|length < 1 %}
+    <div class="container">
+        <div class="mnr-c">
+            <div class="card-section" style="line-height: 1.5;">
+                <p aria-level="3" role="heading" style="padding-top:.33em">Your search - 
+                <span><em><b>{{query}}</b></em></span> 
+                - did not match any documents.</p>
+                <p style="margin-top:1em">Suggestions:</p>
+                <ul style="margin-left:1.3em;margin-bottom:2em">
+                <li>Make sure that all words are spelled correctly.</li>
+                <li>Try different keywords.</li>
+                <li>Try more general keywords.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    {% endif %}
+    {% for post in allPosts  %}
+        <div class="card my-4" 
+            style="width: 60rem;
+            border-radius: 2.3rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body" 
+                style= "font-size: 1rem;
+                font-weight: 600;
+                line-height: 1.5;
+                color: #212529;">
+                <h5 class="card-title"><b>{{post.post_title}}</b></h5>
+                <strong class="d-inline-block mb-2 text-primary text-muted">-Article by {{post.author}}</strong>
+                <div class="mb-1 text-muted">-{{post.timeStamp}}</div>
+                <p class="card-text">{{post.content | truncatechars:500}}</p>
+                <a href="/blog/{{post.slug}}" class="btn btn-primary">Read more</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock body %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} Blog-TechBlogger {% endblock %}
+{% block body %}
+{% load humanize %}
+<div class='container my-2'>
+    <h2>BlogPost--TECHBLOGGER</h2>
+    {% for post in allPosts  %}
+        <div class="card my-4" 
+            style="width: 60rem;
+            border-radius: 2.3rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body" 
+                style= "font-size: 1rem;
+                font-weight: 600;
+                line-height: 1.5;
+                color: #212529;">
+                <h3 class="card-title"><a href="/blog/{{post.slug}}"><b>{{post.post_title}}</b></a></h3>
+                <strong class="d-inline-block mb-2 text-primary text-muted">-Article by {{post.author}}</strong>
+                <div class="mb-1 text-muted">-{{post.timeStamp | naturaltime}} (<span>{{post.views}}</span>)</div>
+                <p class="card-text"> <div class="preview" >{{post.content|safe | truncatechars:500}}</div></p>
+                <a href="/blog/{{post.slug}}" class="btn btn-primary">Read more</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock body %}
+
+{% block js %}
+<script>
+let previews = document.getElementsByClassName('preview')
+Array.fro,(previews).forEach((element)=>{
+    element.innerHTML = element.innerText;
+})
+</script>
+{% endblock %}

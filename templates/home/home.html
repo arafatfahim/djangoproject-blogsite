@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Home-TechBlogger{% endblock %}
+{% block homeactive %}active{% endblock %}
+
+{% block css %}
+.rounded-3 
+{
+    border-radius: 2.3rem!important;
+}
+.bg-dark
+{
+    background-color: #6c757d!important;
+}
+
+.display-4 
+{
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+{% endblock css %}
+
+
+
+
+{% block body %}
+<div class="container my-2">
+    <div class="jumbotron my-2">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h1 class="display-4">Welcome To TechBlogger</h1>
+            <p style="line-height: 2.5">Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
+            <a href="/blog"><button class="btn btn-outline-light" type="button">Goto Blog</button></a>
+        </div>
+    </div>
+</div>
+<div class='container'>
+    <div class="card my-4" style="width: 18rem; border-radius:2.3rem">
+         <img src="..." class="card-img-top" alt="...">
+        <div class="card-body" 
+            style= "font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.5;
+            color: #212529;">
+            <h5 class="card-title">1st Blog</h5>
+            <p class="card-text">Thanks</p>
+            <a href="#" class="btn btn-primary">Read more</a>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
