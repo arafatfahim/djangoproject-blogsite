@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block title %}Home-TechBlogger{% endblock %}
-{% block homeactive %}active{% endblock %}
 
 {% block css %}
 .rounded-3 
@@ -20,32 +19,49 @@
 
 {% endblock css %}
 
-
-
-
 {% block body %}
 <div class="container my-2">
     <div class="jumbotron my-2">
-        <div class="h-100 p-5 text-white bg-dark rounded-3">
-            <h1 class="display-4">Welcome To TechBlogger</h1>
-            <p style="line-height: 2.5">Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
+        <div class="h-100 p-5 text-white bg-dark rounded-3 ">
+            <div id="typed-strings"><h1 class="display-4" style="text-align:center"><span id="typed"></span></h1></div>
+            <p style="line-height: 2.5">HELLO!! Guys Welcome to TechBlogger here you can learn tech and get tech updates and many more. And you can ask questions about tech in comment section so guys do visit and keep supporting.and share this page to your frnds .and thank you for visiting.</p>
             <a href="/blog"><button class="btn btn-outline-light" type="button">Goto Blog</button></a>
         </div>
     </div>
 </div>
-<div class='container'>
-    <div class="card my-4" style="width: 18rem; border-radius:2.3rem">
-         <img src="..." class="card-img-top" alt="...">
-        <div class="card-body" 
-            style= "font-size: 1rem;
-            font-weight: 600;
-            line-height: 1.5;
-            color: #212529;">
-            <h5 class="card-title">1st Blog</h5>
-            <p class="card-text">Thanks</p>
-            <a href="#" class="btn btn-primary">Read more</a>
-        </div>
-    </div>
-</div>
+
 {% endblock body %}
 
+{% block js %}
+<script>
+    var typed = new Typed('#typed',{
+                    strings:["Welcome To TechBlogger"],
+                    backSpeed: 15,
+                    smartBackspace: true,
+                    backDelay: 1200,
+                    startDelay: 1000,
+                    typeSpeed: 25,
+                    loop: false,
+            });
+    
+</script>
+{% endblock %}
+
+var poped = new Typed('#poped',{
+                    strings:["POPULAR BLOGS"],
+                    backSpeed: 15,
+                    smartBackspace: true,
+                    backDelay: 1200,
+                    startDelay: 1000,
+                    typeSpeed: 25,
+                    loop: false,
+            });
+<div class='container my-2'>
+    <div id="poped-strings"><h2 style="text-align:center;"> <span id="poped"></span>POPULAR BLOGS</h2></div>
+{% for post in allPosts %}
+    <div class="row my-3">
+        <div class="col-md-2 ">Image here</div>
+        <div class="col-md-10  ">Comment here</div>
+    </div>
+{% endfor %}
+</div>

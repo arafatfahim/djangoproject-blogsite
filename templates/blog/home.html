@@ -1,14 +1,27 @@
 {% extends 'base.html' %}
-{% block title %} Blog-TechBlogger {% endblock %}
-{% block body %}
 {% load humanize %}
+
+{% block title %} BlogHome {% endblock title %}
+
+{% block css %}
+.card-img, .card-img-top {
+    border-top-left-radius: calc(2.25rem - 1px);
+    border-top-right-radius: calc(2.25rem - 1px);
+    border-bottom-left-radius: calc(2.25rem - 1px);
+    border-bottom-right-radius: calc(2.25rem - 1px);
+}
+
+
+{% endblock css %}
+
+{% block body %}
 <div class='container my-2'>
-    <h2>BlogPost--TECHBLOGGER</h2>
+ <div id="typed-strings"><h3><span id="typed"></span></h3></div>
     {% for post in allPosts  %}
         <div class="card my-4" 
-            style="width: 60rem;
+            style="width: 81rem;
             border-radius: 2.3rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="/media/{{post.thumbnail}}" class="card-img-top" alt="...">
             <div class="card-body" 
                 style= "font-size: 1rem;
                 font-weight: 600;
@@ -16,20 +29,25 @@
                 color: #212529;">
                 <h3 class="card-title"><a href="/blog/{{post.slug}}"><b>{{post.post_title}}</b></a></h3>
                 <strong class="d-inline-block mb-2 text-primary text-muted">-Article by {{post.author}}</strong>
-                <div class="mb-1 text-muted">-{{post.timeStamp | naturaltime}} (<span>{{post.views}}</span>)</div>
+                <div class="mb-1 text-muted">-{{post.timeStamp | naturaltime}} (<span>{{post.views}} views</span>)</div>
                 <p class="card-text"> <div class="preview" >{{post.content|safe | truncatechars:500}}</div></p>
                 <a href="/blog/{{post.slug}}" class="btn btn-primary">Read more</a>
             </div>
         </div>
     {% endfor %}
 </div>
-{% endblock body %}
+{% endblock %}
 
 {% block js %}
 <script>
-let previews = document.getElementsByClassName('preview')
-Array.fro,(previews).forEach((element)=>{
-    element.innerHTML = element.innerText;
-})
+    var typed = new Typed('#typed',{
+                    strings:["You Are In The Blog Post!","You Can Do Comment Every Blog Post!","But Before You Need To Logged In","Thank You-TECH BLOGGER"],
+                    backSpeed: 15,
+                    smartBackspace: true,
+                    backDelay: 1200,
+                    startDelay: 1000,
+                    typeSpeed: 25,
+                    loop: false,
+            });
 </script>
 {% endblock %}

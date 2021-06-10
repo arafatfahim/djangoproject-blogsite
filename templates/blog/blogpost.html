@@ -6,6 +6,7 @@
 <div class="container my-3" style="line-height:1.5">
     <h2 class="blog-post-title">{{post.post_title}}</h2>
     <p class="blog-post-meta">{{post.timeStamp}} by <a href="/about">{{post.author}}</a>(<span>{{post.views}} Views</span>)</p>
+    <img src="/media/{{post.thumbnail}}" class="card-img-top" alt="...">
     <p>{{post.content|safe}}</p>
     <hr>
 </div>

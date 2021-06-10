@@ -8,7 +8,7 @@ class Post(models.Model):
     #database table name
     post_id = models.AutoField(primary_key=True)
     slug = models.CharField(max_length=130)
-    #thumbnail = models.ImageField(upload_to="/images", default="")
+    thumbnail = models.ImageField(upload_to="blogpost/images", default="")
     post_title = models.CharField(max_length=500, default=None)
     content = models.TextField(max_length=5000000, default=None)
     author = models.CharField(max_length=200, default=None)
