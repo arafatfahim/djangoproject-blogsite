@@ -1,7 +1,63 @@
 {% extends 'base.html' %}
 {% block title %} About-TechBlogger {% endblock %}
-{% block  aboutactive %}active{% endblock %}
+
+{% load humanize %}
 
 {% block body %}
 
-{% endblock body %}
+<div class='container my-2' style="color:#40739e; text-align:center;">
+ <div id="x-strings">
+    <h2><span id="x"></span></h2>
+ </div>
+ <div id="y-strings">
+    <h2><span id="y"></span></h2>
+ </div>
+ <div id="z-strings">
+    <h2><span id="z"></span></h2>
+ </div>
+ <div id="typed-strings">
+    <h2><span id="typed"></span></h2>
+ </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+    var x = new Typed('#x',{
+                    strings:["Thanks For Visiting Me"],
+                    backSpeed: 15,
+                    smartBackspace: true,
+                    backDelay: 1200,
+                    startDelay: 1000,
+                    typeSpeed: 25,
+                    loop: false,
+            });
+    var y = new Typed('#y',{
+                    strings:["If You Have Any Query or Suggestion Please Feel-Free To Send Me a Message"],
+                    backSpeed: 20,
+                    smartBackspace: true,
+                    backDelay: 1200,
+                    startDelay: 1000,
+                    typeSpeed: 25,
+                    loop: false,
+            });
+    var z = new Typed('#z',{
+                    strings:["This Site Is In Under-Development"],
+                    backSpeed: 15,
+                    smartBackspace: true,
+                    backDelay: 1200,
+                    startDelay: 1000,
+                    typeSpeed: 25,
+                    loop: false,
+            });
+    var typed = new Typed('#typed',{
+                    strings:["*All Blogposts Are Copied From Another Sites*"],
+                    backSpeed: 15,
+                    smartBackspace: true,
+                    backDelay: 1200,
+                    startDelay: 1000,
+                    typeSpeed: 25,
+                    loop: false,
+            });
+</script>
+{% endblock %}
