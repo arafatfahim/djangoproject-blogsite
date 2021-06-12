@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-_ntm)ox5az76!jo8hxa2y1ss8!z=(n0c92069q*a$e$5oin)3o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','arafatblogsite.herokuapp.com']
+ALLOWED_HOSTS = ['arafatblogsite.herokuapp.com']
 
 
 
@@ -127,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # This is now a string
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # So is this
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # So is this
 MEDIA_URL = '/media/'
 
 MESSAGE_TAGS = {
